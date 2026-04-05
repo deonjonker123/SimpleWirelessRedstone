@@ -17,14 +17,14 @@ public class SWRJadePlugin implements IWailaPlugin {
     @Override
     public void register(IWailaCommonRegistration registration) {
         registration.registerBlockDataProvider(WirelessTransmitterProvider.INSTANCE, WirelessTransmitterBlockEntity.class);
-        registration.registerBlockDataProvider(WirelessReceiverProvider.INSTANCE,    WirelessReceiverBlockEntity.class);
-        registration.registerBlockDataProvider(TimerProvider.INSTANCE,               TimerBlockEntity.class);
+        registration.registerBlockDataProvider(WirelessReceiverProvider.INSTANCE, WirelessReceiverBlockEntity.class);
+        registration.registerBlockDataProvider(TimerProvider.INSTANCE, TimerBlockEntity.class);
     }
 
     @Override
     public void registerClient(IWailaClientRegistration registration) {
         registration.registerBlockComponent(WirelessTransmitterProvider.INSTANCE, WirelessTransmitterBlock.class);
-        registration.registerBlockComponent(WirelessReceiverProvider.INSTANCE,    WirelessReceiverBlock.class);
-        registration.registerBlockComponent(TimerProvider.INSTANCE,               TimerBlock.class);
+        registration.registerBlockComponent(WirelessReceiverProvider.INSTANCE, WirelessReceiverBlock.class);
+        registration.registerBlockComponent(TimerProvider.INSTANCE, TimerBlock.class);
     }
 }

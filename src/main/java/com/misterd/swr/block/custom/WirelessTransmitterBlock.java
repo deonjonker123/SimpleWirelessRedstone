@@ -115,7 +115,6 @@ public class WirelessTransmitterBlock extends BaseEntityBlock {
                          BlockState newState, boolean isMoving) {
         if (!state.is(newState.getBlock())) {
             if (level.getBlockEntity(pos) instanceof WirelessTransmitterBlockEntity be) {
-                // Power off all receivers before unregistering
                 be.onPoweredChanged(false);
                 be.unregisterFromChannelManager();
             }

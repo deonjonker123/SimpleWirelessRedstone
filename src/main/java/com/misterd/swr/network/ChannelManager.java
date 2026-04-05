@@ -2,6 +2,7 @@ package com.misterd.swr.network;
 
 import com.misterd.swr.Config;
 import com.misterd.swr.block.custom.WirelessReceiverBlock;
+import com.misterd.swr.block.custom.WirelessTransmitterBlock;
 import com.misterd.swr.blockentity.custom.WirelessReceiverBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -119,8 +120,8 @@ public class ChannelManager extends SavedData {
         for (BlockPos transmitterPos : sources) {
             if (transmitterPos.distSqr(receiverPos) > rangeSq) continue;
             BlockState txState = level.getBlockState(transmitterPos);
-            if (!txState.hasProperty(com.misterd.swr.block.custom.WirelessTransmitterBlock.POWERED)) continue;
-            if (txState.getValue(com.misterd.swr.block.custom.WirelessTransmitterBlock.POWERED)) {
+            if (!txState.hasProperty(WirelessTransmitterBlock.POWERED)) continue;
+            if (txState.getValue(WirelessTransmitterBlock.POWERED)) {
                 BlockState rxState = level.getBlockState(receiverPos);
                 if (rxState.getBlock() instanceof WirelessReceiverBlock) {
                     level.setBlock(receiverPos, rxState.setValue(WirelessReceiverBlock.POWERED, true), 3);

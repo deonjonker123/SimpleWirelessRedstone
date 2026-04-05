@@ -5,6 +5,7 @@ import com.misterd.swr.blockentity.custom.WirelessReceiverBlockEntity;
 import com.misterd.swr.blockentity.custom.WirelessTransmitterBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +22,7 @@ public record SetChannelPacket(BlockPos pos, int channel) implements CustomPacke
     public static final StreamCodec<FriendlyByteBuf, SetChannelPacket> STREAM_CODEC =
             StreamCodec.composite(
                     BlockPos.STREAM_CODEC, SetChannelPacket::pos,
-                    net.minecraft.network.codec.ByteBufCodecs.INT, SetChannelPacket::channel,
+                    ByteBufCodecs.INT, SetChannelPacket::channel,
                     SetChannelPacket::new);
 
     @Override

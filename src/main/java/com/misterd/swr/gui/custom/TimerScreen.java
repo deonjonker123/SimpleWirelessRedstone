@@ -39,27 +39,27 @@ public class TimerScreen extends AbstractContainerScreen<TimerMenu> {
             ResourceLocation.fromNamespaceAndPath(SimpleWirelessRedstone.MODID, "off_btn")
     );
 
-    private static final int BG_W       = 172;
-    private static final int BG_H       = 92;
-    private static final int BTN_TEX_W  = 236;
-    private static final int BTN_TEX_H  = 24;
-    private static final int CORNER     = 4;
-    private static final int EB_X       = 8;
-    private static final int EB_Y       = 48;
-    private static final int EB_W       = 69;
-    private static final int EB_H       = 10;
-    private static final int BTN_H      = 18;
+    private static final int BG_W = 172;
+    private static final int BG_H = 92;
+    private static final int BTN_TEX_W = 236;
+    private static final int BTN_TEX_H = 24;
+    private static final int CORNER = 4;
+    private static final int EB_X = 8;
+    private static final int EB_Y = 48;
+    private static final int EB_W = 69;
+    private static final int EB_H = 10;
+    private static final int BTN_H = 18;
     private static final int BTN_GUTTER = 2;
-    private static final int INC_X      = 7;
-    private static final int INC_Y      = 22;
-    private static final int DEC_X      = 7;
-    private static final int DEC_Y      = 62;
-    private static final int RSC_X      = 101;
-    private static final int RSC_Y      = 22;
-    private static final int TOGGLE_X   = 154;
-    private static final int TOGGLE_Y   = 74;
-    private static final int TOGGLE_W   = 12;
-    private static final int TOGGLE_H   = 12;
+    private static final int INC_X = 7;
+    private static final int INC_Y = 22;
+    private static final int DEC_X = 7;
+    private static final int DEC_Y = 62;
+    private static final int RSC_X = 101;
+    private static final int RSC_Y = 22;
+    private static final int TOGGLE_X = 154;
+    private static final int TOGGLE_Y = 74;
+    private static final int TOGGLE_W = 12;
+    private static final int TOGGLE_H = 12;
 
     private EditBox   intervalBox;
     private boolean   running;

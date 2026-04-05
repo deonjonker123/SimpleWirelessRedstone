@@ -1,5 +1,6 @@
 package com.misterd.swr.block.custom;
 
+import com.misterd.swr.blockentity.SWRBlockEntities;
 import com.misterd.swr.blockentity.custom.TimerBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -112,8 +113,7 @@ public class TimerBlock extends BaseEntityBlock {
     }
 
     @Override
-    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
-                                            Player player, BlockHitResult hit) {
+    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide) {
             BlockEntity be = level.getBlockEntity(pos);
             if (be instanceof TimerBlockEntity timer) {
@@ -131,10 +131,9 @@ public class TimerBlock extends BaseEntityBlock {
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
-                                                                  BlockEntityType<T> type) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (level.isClientSide) return null;
-        return createTickerHelper(type, com.misterd.swr.blockentity.SWRBlockEntities.TIMER_BE.get(),
+        return createTickerHelper(type, SWRBlockEntities.TIMER_BE.get(),
                 TimerBlockEntity::tick);
     }
 

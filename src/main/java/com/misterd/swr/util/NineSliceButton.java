@@ -1,5 +1,6 @@
 package com.misterd.swr.util;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
@@ -26,7 +27,7 @@ public class NineSliceButton extends Button {
 
         int labelColor = active ? 0xFFFFFF : 0xA0A0A0;
         gfx.drawCenteredString(
-                net.minecraft.client.Minecraft.getInstance().font,
+                Minecraft.getInstance().font,
                 getMessage(),
                 getX() + getWidth() / 2,
                 getY() + (getHeight() - 8) / 2,
@@ -44,12 +45,12 @@ public class NineSliceButton extends Button {
         gfx.blit(texture, x, y, c, c,0,0, c, c, texW, texH);
         gfx.blit(texture, x + w - c, y, c, c, c + mw, 0, c, c, texW, texH);
         gfx.blit(texture, x,y + h - c, c,  c,0, c + mh, c,  c, texW, texH);
-        gfx.blit(texture, x + w - c, y + h - c, c,  c,  c + mw, c + mh, c,  c,  texW, texH);
+        gfx.blit(texture, x + w - c, y + h - c, c, c, c + mw, c + mh, c, c, texW, texH);
 
         gfx.blit(texture, x + c, y, bw, c, c,0,mw, c, texW, texH);
-        gfx.blit(texture, x + c, y + h - c, bw, c,  c, c + mh, mw, c,  texW, texH);
+        gfx.blit(texture, x + c, y + h - c, bw, c, c, c + mh, mw, c, texW, texH);
         gfx.blit(texture, x,y + c, c, bh, 0, c, c, mh, texW, texH);
-        gfx.blit(texture, x + w - c, y + c, c,  bh, c + mw, c, c, mh, texW, texH);
+        gfx.blit(texture, x + w - c, y + c, c, bh, c + mw, c, c, mh, texW, texH);
         gfx.blit(texture, x + c, y + c, bw, bh, c, c, mw, mh, texW, texH);
     }
 }
