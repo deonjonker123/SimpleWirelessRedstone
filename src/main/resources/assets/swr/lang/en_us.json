@@ -1,0 +1,11 @@
+{
+  "creativetab.swr": "Simple Wireless Redstone",
+
+  "block.swr.wireless_receiver": "Wireless Redstone Receiver",
+  "block.swr.wireless_transmitter": "Wireless Redstone Transmitter",
+  "block.swr.timer": "Timer",
+
+  "block.swr.wireless_receiver.subtitle": "Receives redstone signals from any Transmitter on the same channel",
+  "block.swr.wireless_transmitter.subtitle": "Broadcasts a redstone signal to all Receivers on the same channel",
+  "block.swr.timer.subtitle": "Pulses a redstone signal at a configurable interval"
+}

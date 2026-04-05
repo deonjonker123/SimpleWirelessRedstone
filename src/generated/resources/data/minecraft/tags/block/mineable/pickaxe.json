@@ -1,0 +1,7 @@
+{
+  "values": [
+    "swr:wireless_transmitter",
+    "swr:wireless_receiver",
+    "swr:timer"
+  ]
+}
