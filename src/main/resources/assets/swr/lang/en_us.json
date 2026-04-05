@@ -7,5 +7,38 @@
 
   "block.swr.wireless_receiver.subtitle": "Receives redstone signals from any Transmitter on the same channel",
   "block.swr.wireless_transmitter.subtitle": "Broadcasts a redstone signal to all Receivers on the same channel",
-  "block.swr.timer.subtitle": "Pulses a redstone signal at a configurable interval"
+  "block.swr.timer.subtitle": "Pulses a redstone signal at a configurable interval",
+
+  "gui.swr.transmitter.title": "Wireless Transmitter",
+  "gui.swr.transmitter.channel_box": "Channel",
+  "gui.swr.transmitter.reset": "Reset",
+  "gui.swr.transmitter.set": "Set",
+  "gui.swr.transmitter.cancel": "Cancel",
+
+  "gui.swr.receiver.title": "Wireless Receiver",
+  "gui.swr.receiver.channel_box": "Channel",
+  "gui.swr.receiver.reset": "Reset",
+  "gui.swr.receiver.set": "Set",
+  "gui.swr.receiver.cancel": "Cancel",
+
+  "gui.swr.timer.title": "Timer",
+  "gui.swr.timer.interval_box": "Interval (ticks)",
+  "gui.swr.timer.reset": "Reset",
+  "gui.swr.timer.set": "Set",
+  "gui.swr.timer.cancel": "Cancel",
+  "gui.swr.timer.running": "Timer is running — click to stop",
+  "gui.swr.timer.stopped": "Timer is stopped — click to start",
+  "gui.swr.transmitter.channel_box.tooltip.line1": "Set the channel number.",
+  "gui.swr.transmitter.channel_box.tooltip.line2": "Transmitters and Receivers on the same channel will communicate.",
+  "gui.swr.receiver.channel_box.tooltip.line1": "Set the channel number.",
+  "gui.swr.receiver.channel_box.tooltip.line2": "This Receiver will respond to any Transmitter on the same channel.",
+  "gui.swr.receiver.interval_box.tooltip.line1": "Set the pulse interval in ticks.",
+  "gui.swr.receiver.interval_box.tooltip.line2": "20 ticks = 1 second. Min: 2, Max: 10,000.",
+
+  "jade.swr.channel": "Channel: %s",
+  "jade.swr.no_channel": "No channel set",
+  "jade.swr.connected_receivers": "Connected Receivers: %s",
+  "jade.swr.timer.interval": "Pulse Interval: %s ticks",
+  "jade.swr.timer.running": "Running",
+  "jade.swr.timer.stopped": "Stopped"
 }

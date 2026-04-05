@@ -1,5 +1,12 @@
 {
 	"variants": {
-		"": { "model": "swr:block/timer" }
+		"facing=north,powered=false": { "model": "swr:block/timer" },
+		"facing=east,powered=false":  { "model": "swr:block/timer", "y": 90  },
+		"facing=south,powered=false": { "model": "swr:block/timer", "y": 180 },
+		"facing=west,powered=false":  { "model": "swr:block/timer", "y": 270 },
+		"facing=north,powered=true":  { "model": "swr:block/timer_on" },
+		"facing=east,powered=true":   { "model": "swr:block/timer_on", "y": 90  },
+		"facing=south,powered=true":  { "model": "swr:block/timer_on", "y": 180 },
+		"facing=west,powered=true":   { "model": "swr:block/timer_on", "y": 270 }
 	}
 }

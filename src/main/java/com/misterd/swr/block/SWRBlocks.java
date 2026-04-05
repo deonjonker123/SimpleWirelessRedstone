@@ -1,6 +1,9 @@
 package com.misterd.swr.block;
 
 import com.misterd.swr.SimpleWirelessRedstone;
+import com.misterd.swr.block.custom.TimerBlock;
+import com.misterd.swr.block.custom.WirelessReceiverBlock;
+import com.misterd.swr.block.custom.WirelessTransmitterBlock;
 import com.misterd.swr.item.SWRItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -22,7 +25,7 @@ public class SWRBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SimpleWirelessRedstone.MODID);
 
     public static final DeferredBlock<Block> WIRELESS_RECEIVER = registerBlock("wireless_receiver",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new WirelessReceiverBlock(BlockBehaviour.Properties.of()
                     .strength(1F, 6F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)
@@ -35,7 +38,7 @@ public class SWRBlocks {
             });
 
     public static final DeferredBlock<Block> WIRELESS_TRANSMITTER = registerBlock("wireless_transmitter",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new WirelessTransmitterBlock(BlockBehaviour.Properties.of()
                     .strength(1F, 6F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)
@@ -48,7 +51,7 @@ public class SWRBlocks {
             });
 
     public static final DeferredBlock<Block> TIMER = registerBlock("timer",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new TimerBlock(BlockBehaviour.Properties.of()
                     .strength(1F, 6F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)

@@ -1,25 +1,54 @@
+# Simple Wireless Redstone
 
-Installation information
-=======
+A lightweight NeoForge mod for Minecraft 1.21.1 that adds wireless redstone signal transmission. No fuss, no complex setup — place, set a channel, done.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+---
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## Blocks
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+### Wireless Transmitter
+Broadcasts a redstone signal wirelessly to all Receivers on the same channel within range.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+### Wireless Receiver
+Outputs a redstone signal when a Transmitter on the same channel is powered.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+### Timer
+A configurable redstone clock that pulses a signal at a set interval.
+- Always running by default
+- Can be started/stopped from the GUI
+- Outputs signal from the front face only
+- Horizontal facing, placed toward the player
+
+---
+
+## How It Works
+
+1. Place a **Wireless Transmitter** and right-click it to set a channel number (e.g. `5`)
+2. Place a **Wireless Receiver** and set it to the same channel
+3. Power the Transmitter with a redstone signal — the Receiver will output a signal
+
+Channels are numerical. Any positive integer is valid. Multiple Transmitters and Receivers can share the same channel.
+
+**Channels are player-specific.** On a multiplayer server, your Transmitters will only communicate with your own Receivers — other players' blocks on the same channel number will not interfere.
+
+---
+
+## Configuration
+
+The mod includes a common config file (`swr-common.toml`) with the following options:
+
+| Option | Default | Min | Max | Description |
+|--------|---------|-----|-----|-------------|
+| `transmission_range` | `128` | `16` | `512` | Radius in blocks within which Transmitters can reach Receivers |
+
+> **Warning:** Very large range values (above 256) may impact server performance on busy servers.
+
+---
+
+## Jade Support
+
+If [Jade](https://www.curseforge.com/minecraft/mc-mods/jade) is installed, hovering over blocks will display:
+
+- **Transmitter** — Current channel, number of connected Receivers
+- **Receiver** — Current channel
+- **Timer** — Pulse interval, running state

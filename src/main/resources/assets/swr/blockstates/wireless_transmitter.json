@@ -1,5 +1,12 @@
 {
 	"variants": {
-		"": { "model": "swr:block/wireless_transmitter" }
+		"facing=north,powered=false": { "model": "swr:block/wireless_transmitter" },
+		"facing=east,powered=false":  { "model": "swr:block/wireless_transmitter", "y": 90  },
+		"facing=south,powered=false": { "model": "swr:block/wireless_transmitter", "y": 180 },
+		"facing=west,powered=false":  { "model": "swr:block/wireless_transmitter", "y": 270 },
+		"facing=north,powered=true":  { "model": "swr:block/wireless_transmitter_on" },
+		"facing=east,powered=true":   { "model": "swr:block/wireless_transmitter_on", "y": 90  },
+		"facing=south,powered=true":  { "model": "swr:block/wireless_transmitter_on", "y": 180 },
+		"facing=west,powered=true":   { "model": "swr:block/wireless_transmitter_on", "y": 270 }
 	}
 }
