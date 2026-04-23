@@ -61,13 +61,13 @@ public class TimerScreen extends AbstractContainerScreen<TimerMenu> {
     private static final int TOGGLE_W = 12;
     private static final int TOGGLE_H = 12;
 
-    private EditBox   intervalBox;
-    private boolean   running;
+    private EditBox intervalBox;
+    private boolean running;
     private ImageButton toggleBtn;
 
     public TimerScreen(TimerMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
-        this.imageWidth  = BG_W;
+        this.imageWidth = BG_W;
         this.imageHeight = BG_H;
     }
 
@@ -76,13 +76,12 @@ public class TimerScreen extends AbstractContainerScreen<TimerMenu> {
         super.init();
 
         int left = this.leftPos;
-        int top  = this.topPos;
+        int top = this.topPos;
         this.inventoryLabelY = Integer.MAX_VALUE;
 
         if (intervalBox == null) running = menu.isRunning();
 
-        intervalBox = new EditBox(font, left + EB_X, top + EB_Y, EB_W, EB_H,
-                Component.translatable("gui.swr.timer.interval_box"));
+        intervalBox = new EditBox(font, left + EB_X, top + EB_Y, EB_W, EB_H, Component.translatable("gui.swr.timer.interval_box"));
         intervalBox.setFilter(s -> s.isEmpty() || s.matches("\\d+"));
         intervalBox.setMaxLength(5);
         intervalBox.setValue(String.valueOf(menu.getInterval()));
@@ -111,12 +110,12 @@ public class TimerScreen extends AbstractContainerScreen<TimerMenu> {
             decX += w + BTN_GUTTER;
         }
 
-        Component resetLabel  = Component.translatable("gui.swr.timer.reset");
-        Component setLabel    = Component.translatable("gui.swr.timer.set");
+        Component resetLabel = Component.translatable("gui.swr.timer.reset");
+        Component setLabel = Component.translatable("gui.swr.timer.set");
         Component cancelLabel = Component.translatable("gui.swr.timer.cancel");
         int rscW = font.width(cancelLabel) + CORNER * 2;
         int rscX = left + RSC_X;
-        int rscY = top  + RSC_Y;
+        int rscY = top + RSC_Y;
 
         addRenderableWidget(new NineSliceButton(rscX, rscY, rscW, BTN_H,
                 resetLabel, btn -> onReset(), BTN_TEXTURE, BTN_TEX_W, BTN_TEX_H, CORNER));

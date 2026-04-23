@@ -25,26 +25,21 @@ public class NineSliceButton extends Button {
     public void renderWidget(GuiGraphics gfx, int mouseX, int mouseY, float partialTick) {
         blitNineSlice(gfx, getX(), getY(), getWidth(), getHeight());
 
-        int labelColor = active ? 0xFFFFFF : 0xA0A0A0;
-        gfx.drawCenteredString(
-                Minecraft.getInstance().font,
-                getMessage(),
-                getX() + getWidth() / 2,
-                getY() + (getHeight() - 8) / 2,
-                labelColor
-        );
+        var font = Minecraft.getInstance().font;
+        int labelColor = active ? 0x404040 : 0xA0A0A0;
+        gfx.drawString(font, getMessage(), getX() + (getWidth() - font.width(getMessage())) / 2, getY() + (getHeight() - 8) / 2, labelColor, false);
     }
 
     private void blitNineSlice(GuiGraphics gfx, int x, int y, int w, int h) {
-        int c   = corner;
-        int mw  = texW - c * 2;
-        int mh  = texH - c * 2;
-        int bw  = w - c * 2;
-        int bh  = h - c * 2;
+        int c = corner;
+        int mw = texW - c * 2;
+        int mh = texH - c * 2;
+        int bw = w - c * 2;
+        int bh = h - c * 2;
 
         gfx.blit(texture, x, y, c, c,0,0, c, c, texW, texH);
         gfx.blit(texture, x + w - c, y, c, c, c + mw, 0, c, c, texW, texH);
-        gfx.blit(texture, x,y + h - c, c,  c,0, c + mh, c,  c, texW, texH);
+        gfx.blit(texture, x,y + h - c, c, c,0, c + mh, c, c, texW, texH);
         gfx.blit(texture, x + w - c, y + h - c, c, c, c + mw, c + mh, c, c, texW, texH);
 
         gfx.blit(texture, x + c, y, bw, c, c,0,mw, c, texW, texH);

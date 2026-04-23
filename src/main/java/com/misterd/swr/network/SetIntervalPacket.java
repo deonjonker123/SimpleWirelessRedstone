@@ -14,8 +14,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public record SetIntervalPacket(BlockPos pos, int interval) implements CustomPacketPayload {
 
     public static final CustomPacketPayload.Type<SetIntervalPacket> TYPE =
-            new CustomPacketPayload.Type<>(
-                    ResourceLocation.fromNamespaceAndPath(SimpleWirelessRedstone.MODID, "set_interval"));
+            new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(SimpleWirelessRedstone.MODID, "set_interval"));
 
     public static final StreamCodec<FriendlyByteBuf, SetIntervalPacket> STREAM_CODEC =
             StreamCodec.composite(

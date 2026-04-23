@@ -23,7 +23,7 @@ import java.util.UUID;
 public class WirelessTransmitterBlockEntity extends BlockEntity implements MenuProvider {
 
     private static final String TAG_CHANNEL = "channel";
-    private static final String TAG_OWNER   = "owner";
+    private static final String TAG_OWNER = "owner";
     private static final int NO_CHANNEL = -1;
 
     private int channel = NO_CHANNEL;
@@ -104,8 +104,8 @@ public class WirelessTransmitterBlockEntity extends BlockEntity implements MenuP
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        channel   = tag.contains(TAG_CHANNEL) ? tag.getInt(TAG_CHANNEL) : NO_CHANNEL;
-        ownerUUID = tag.hasUUID(TAG_OWNER)    ? tag.getUUID(TAG_OWNER)  : null;
+        channel = tag.contains(TAG_CHANNEL) ? tag.getInt(TAG_CHANNEL) : NO_CHANNEL;
+        ownerUUID = tag.hasUUID(TAG_OWNER) ? tag.getUUID(TAG_OWNER) : null;
     }
 
     @Override

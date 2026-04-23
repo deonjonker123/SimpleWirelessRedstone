@@ -38,7 +38,7 @@ public class WirelessReceiverBlock extends BaseEntityBlock {
     public static final BooleanProperty POWERED  = BlockStateProperties.POWERED;
 
     private static final VoxelShape SHAPE_UP = Shapes.or(
-            Block.box(4, 0,     4, 12, 0.25, 12)
+            Block.box(4, 0, 4, 12, 0.25, 12)
     );
     private static final VoxelShape SHAPE_DOWN = Shapes.or(
             Block.box(4, 15.75, 4, 12, 16,   12)
@@ -92,8 +92,7 @@ public class WirelessReceiverBlock extends BaseEntityBlock {
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        if (placer instanceof Player player
-                && level.getBlockEntity(pos) instanceof WirelessReceiverBlockEntity be) {
+        if (placer instanceof Player player && level.getBlockEntity(pos) instanceof WirelessReceiverBlockEntity be) {
             be.setOwnerUUID(player.getUUID());
             be.registerWithChannelManager();
         }
@@ -122,12 +121,12 @@ public class WirelessReceiverBlock extends BaseEntityBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
         return switch (state.getValue(FACING)) {
-            case DOWN  -> SHAPE_DOWN;
+            case DOWN -> SHAPE_DOWN;
             case NORTH -> SHAPE_NORTH;
             case SOUTH -> SHAPE_SOUTH;
-            case EAST  -> SHAPE_EAST;
-            case WEST  -> SHAPE_WEST;
-            default    -> SHAPE_UP;
+            case EAST -> SHAPE_EAST;
+            case WEST -> SHAPE_WEST;
+            default -> SHAPE_UP;
         };
     }
 

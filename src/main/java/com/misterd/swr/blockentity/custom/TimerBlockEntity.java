@@ -23,32 +23,36 @@ import net.minecraft.world.level.block.state.BlockState;
 public class TimerBlockEntity extends BlockEntity implements MenuProvider {
 
     private static final String TAG_INTERVAL = "interval";
-    private static final String TAG_COUNTER  = "counter";
-    private static final String TAG_RUNNING  = "running";
+    private static final String TAG_COUNTER = "counter";
+    private static final String TAG_RUNNING = "running";
 
     public static final int DEFAULT_INTERVAL = 20;
-    public static final int MIN_INTERVAL     = 2;
-    public static final int MAX_INTERVAL     = 10000;
+    public static final int MIN_INTERVAL = 2;
+    public static final int MAX_INTERVAL = 10000;
 
-    private int     interval = DEFAULT_INTERVAL;
-    private int     counter  = 0;
-    private boolean running  = true;
+    private int interval = DEFAULT_INTERVAL;
+    private int counter = 0;
+    private boolean running = true;
 
     public TimerBlockEntity(BlockPos pos, BlockState state) {
         super(SWRBlockEntities.TIMER_BE.get(), pos, state);
     }
 
-    public int getInterval() { return interval; }
+    public int getInterval() {
+        return interval;
+    }
 
     public void setInterval(int interval) {
         this.interval = Math.clamp(interval, MIN_INTERVAL, MAX_INTERVAL);
-        this.counter  = 0;
+        this.counter = 0;
         setChanged();
         if (level != null && !level.isClientSide)
             level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
     }
 
-    public boolean isRunning() { return running; }
+    public boolean isRunning() {
+        return running;
+    }
 
     public void setRunning(boolean running) {
         this.running = running;

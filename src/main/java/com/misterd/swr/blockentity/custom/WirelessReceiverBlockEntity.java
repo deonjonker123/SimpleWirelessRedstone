@@ -23,7 +23,7 @@ import java.util.UUID;
 public class WirelessReceiverBlockEntity extends BlockEntity implements MenuProvider {
 
     private static final String TAG_CHANNEL = "channel";
-    private static final String TAG_OWNER   = "owner";
+    private static final String TAG_OWNER = "owner";
     private static final int NO_CHANNEL = -1;
 
     private int channel = NO_CHANNEL;

@@ -43,7 +43,7 @@ public class WirelessReceiverScreen extends AbstractContainerScreen<WirelessRece
 
     public WirelessReceiverScreen(WirelessReceiverMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
-        this.imageWidth  = BG_W;
+        this.imageWidth = BG_W;
         this.imageHeight = BG_H;
     }
 
@@ -52,11 +52,10 @@ public class WirelessReceiverScreen extends AbstractContainerScreen<WirelessRece
         super.init();
 
         int left = this.leftPos;
-        int top  = this.topPos;
+        int top = this.topPos;
         this.inventoryLabelY = Integer.MAX_VALUE;
 
-        channelBox = new EditBox(font, left + EB_X, top + EB_Y, EB_W, EB_H,
-                Component.translatable("gui.swr.receiver.channel_box"));
+        channelBox = new EditBox(font, left + EB_X, top + EB_Y, EB_W, EB_H, Component.translatable("gui.swr.receiver.channel_box"));
         channelBox.setFilter(s -> s.isEmpty() || s.matches("\\d+"));
         channelBox.setMaxLength(10);
         int stored = menu.getChannel();
@@ -86,12 +85,12 @@ public class WirelessReceiverScreen extends AbstractContainerScreen<WirelessRece
             decX += w + BTN_GUTTER;
         }
 
-        Component resetLabel  = Component.translatable("gui.swr.receiver.reset");
-        Component setLabel    = Component.translatable("gui.swr.receiver.set");
+        Component resetLabel = Component.translatable("gui.swr.receiver.reset");
+        Component setLabel = Component.translatable("gui.swr.receiver.set");
         Component cancelLabel = Component.translatable("gui.swr.receiver.cancel");
         int rscW = font.width(cancelLabel) + CORNER * 2;
         int rscX = left + RSC_X;
-        int rscY = top  + RSC_Y;
+        int rscY = top + RSC_Y;
 
         addRenderableWidget(new NineSliceButton(rscX, rscY, rscW, BTN_H,
                 resetLabel, btn -> onReset(), BTN_TEXTURE, BTN_TEX_W, BTN_TEX_H, CORNER));

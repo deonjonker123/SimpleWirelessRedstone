@@ -17,8 +17,7 @@ import snownee.jade.api.config.IPluginConfig;
 public enum WirelessTransmitterProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
     INSTANCE;
 
-    private static final ResourceLocation UID =
-            ResourceLocation.fromNamespaceAndPath("swr", "wireless_transmitter_info");
+    private static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("swr", "wireless_transmitter_info");
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {

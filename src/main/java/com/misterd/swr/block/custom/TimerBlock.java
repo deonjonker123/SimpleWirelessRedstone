@@ -40,19 +40,19 @@ public class TimerBlock extends BaseEntityBlock {
 
     private static final VoxelShape SHAPE_NORTH = Shapes.or(
             Block.box(7, 2, 11, 9, 7, 13),
-            Block.box(0, 0, 0,  16, 2, 16)
+            Block.box(0, 0, 0, 16, 2, 16)
     );
     private static final VoxelShape SHAPE_SOUTH = Shapes.or(
-            Block.box(7, 2, 3,  9, 7, 5),
-            Block.box(0, 0, 0,  16, 2, 16)
+            Block.box(7, 2, 3, 9, 7, 5),
+            Block.box(0, 0, 0, 16, 2, 16)
     );
     private static final VoxelShape SHAPE_EAST = Shapes.or(
-            Block.box(3, 2, 7,  5, 7, 9),
-            Block.box(0, 0, 0,  16, 2, 16)
+            Block.box(3, 2, 7, 5, 7, 9),
+            Block.box(0, 0, 0, 16, 2, 16)
     );
     private static final VoxelShape SHAPE_WEST = Shapes.or(
             Block.box(11, 2, 7, 13, 7, 9),
-            Block.box(0,  0, 0,  16, 2, 16)
+            Block.box(0, 0, 0, 16, 2, 16)
     );
 
     public TimerBlock(BlockBehaviour.Properties props) {
@@ -83,9 +83,9 @@ public class TimerBlock extends BaseEntityBlock {
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
         return switch (state.getValue(FACING)) {
             case SOUTH -> SHAPE_SOUTH;
-            case EAST  -> SHAPE_EAST;
-            case WEST  -> SHAPE_WEST;
-            default    -> SHAPE_NORTH;
+            case EAST -> SHAPE_EAST;
+            case WEST -> SHAPE_WEST;
+            default -> SHAPE_NORTH;
         };
     }
 

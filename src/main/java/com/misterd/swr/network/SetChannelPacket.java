@@ -16,8 +16,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public record SetChannelPacket(BlockPos pos, int channel) implements CustomPacketPayload {
 
     public static final CustomPacketPayload.Type<SetChannelPacket> TYPE =
-            new CustomPacketPayload.Type<>(
-                    ResourceLocation.fromNamespaceAndPath(SimpleWirelessRedstone.MODID, "set_channel"));
+            new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(SimpleWirelessRedstone.MODID, "set_channel"));
 
     public static final StreamCodec<FriendlyByteBuf, SetChannelPacket> STREAM_CODEC =
             StreamCodec.composite(

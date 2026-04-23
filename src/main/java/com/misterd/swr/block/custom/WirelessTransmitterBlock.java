@@ -36,35 +36,35 @@ public class WirelessTransmitterBlock extends BaseEntityBlock {
     public static final BooleanProperty POWERED  = BlockStateProperties.POWERED;
 
     private static final VoxelShape SHAPE_NORTH = Shapes.or(
-            Block.box(1,   11, 2,   15,   14, 14  ),
-            Block.box(4.5, 9,  4.5, 11.5, 11, 11.5),
-            Block.box(4.5, 2,  4.5, 11.5, 4,  11.5),
-            Block.box(5,   4,  5,   11,   9,  11  ),
-            Block.box(3,   0,  3,   13,   2,  13  )
+            Block.box(1, 11, 2, 15, 14, 14),
+            Block.box(4.5, 9, 4.5, 11.5, 11, 11.5),
+            Block.box(4.5, 2, 4.5, 11.5, 4, 11.5),
+            Block.box(5, 4, 5, 11, 9, 11),
+            Block.box(3, 0, 3, 13, 2, 13)
     );
 
     private static final VoxelShape SHAPE_SOUTH = Shapes.or(
-            Block.box(1,   11, 2,   15,   14, 14  ),
-            Block.box(4.5, 9,  4.5, 11.5, 11, 11.5),
-            Block.box(4.5, 2,  4.5, 11.5, 4,  11.5),
-            Block.box(5,   4,  5,   11,   9,  11  ),
-            Block.box(3,   0,  3,   13,   2,  13  )
+            Block.box(1, 11, 2, 15, 14, 14),
+            Block.box(4.5, 9, 4.5, 11.5, 11, 11.5),
+            Block.box(4.5, 2, 4.5, 11.5, 4, 11.5),
+            Block.box(5, 4, 5, 11, 9, 11),
+            Block.box(3, 0, 3, 13, 2, 13)
     );
 
     private static final VoxelShape SHAPE_WEST = Shapes.or(
-            Block.box(2,   11, 1,   14,   14, 15  ),
-            Block.box(4.5, 9,  4.5, 11.5, 11, 11.5),
-            Block.box(4.5, 2,  4.5, 11.5, 4,  11.5),
-            Block.box(5,   4,  5,   11,   9,  11  ),
-            Block.box(3,   0,  3,   13,   2,  13  )
+            Block.box(2, 11, 1, 14, 14, 15),
+            Block.box(4.5, 9, 4.5, 11.5, 11, 11.5),
+            Block.box(4.5, 2, 4.5, 11.5, 4, 11.5),
+            Block.box(5, 4, 5, 11, 9, 11),
+            Block.box(3, 0, 3, 13, 2, 13)
     );
 
     private static final VoxelShape SHAPE_EAST = Shapes.or(
-            Block.box(2,   11, 1,   14,   14, 15  ),
-            Block.box(4.5, 9,  4.5, 11.5, 11, 11.5),
-            Block.box(4.5, 2,  4.5, 11.5, 4,  11.5),
-            Block.box(5,   4,  5,   11,   9,  11  ),
-            Block.box(3,   0,  3,   13,   2,  13  )
+            Block.box(2, 11, 1, 14, 14, 15),
+            Block.box(4.5, 9, 4.5, 11.5, 11, 11.5),
+            Block.box(4.5, 2, 4.5, 11.5, 4, 11.5),
+            Block.box(5, 4, 5, 11, 9, 11),
+            Block.box(3, 0, 3, 13, 2, 13)
     );
 
     public WirelessTransmitterBlock(BlockBehaviour.Properties props) {
@@ -94,17 +94,16 @@ public class WirelessTransmitterBlock extends BaseEntityBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
         return switch (state.getValue(FACING)) {
-            case EAST  -> SHAPE_EAST;
+            case EAST -> SHAPE_EAST;
             case SOUTH -> SHAPE_SOUTH;
-            case WEST  -> SHAPE_WEST;
-            default    -> SHAPE_NORTH;
+            case WEST -> SHAPE_WEST;
+            default -> SHAPE_NORTH;
         };
     }
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        if (placer instanceof Player player
-                && level.getBlockEntity(pos) instanceof WirelessTransmitterBlockEntity be) {
+        if (placer instanceof Player player && level.getBlockEntity(pos) instanceof WirelessTransmitterBlockEntity be) {
             be.setOwnerUUID(player.getUUID());
             be.registerWithChannelManager();
         }
@@ -123,8 +122,7 @@ public class WirelessTransmitterBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void neighborChanged(BlockState state, Level level, BlockPos pos,
-                                Block block, BlockPos fromPos, boolean isMoving) {
+    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
         if (level.isClientSide) return;
         boolean powered = isReceivingRedstone(level, pos);
         if (powered != state.getValue(POWERED)) {
@@ -136,8 +134,7 @@ public class WirelessTransmitterBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void onPlace(BlockState state, Level level, BlockPos pos,
-                        BlockState oldState, boolean isMoving) {
+    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
         if (level.isClientSide) return;
         boolean powered = isReceivingRedstone(level, pos);
         if (powered) {

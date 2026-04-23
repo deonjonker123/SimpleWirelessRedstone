@@ -14,8 +14,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public record SetRunningPacket(BlockPos pos, boolean running) implements CustomPacketPayload {
 
     public static final CustomPacketPayload.Type<SetRunningPacket> TYPE =
-            new CustomPacketPayload.Type<>(
-                    ResourceLocation.fromNamespaceAndPath(SimpleWirelessRedstone.MODID, "set_running"));
+            new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(SimpleWirelessRedstone.MODID, "set_running"));
 
     public static final StreamCodec<FriendlyByteBuf, SetRunningPacket> STREAM_CODEC =
             StreamCodec.composite(

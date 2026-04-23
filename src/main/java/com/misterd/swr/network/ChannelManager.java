@@ -32,9 +32,7 @@ public class ChannelManager extends SavedData {
     }
 
     public static ChannelManager get(ServerLevel level) {
-        return level.getDataStorage().computeIfAbsent(
-                new SavedData.Factory<>(ChannelManager::new, ChannelManager::load),
-                DATA_NAME);
+        return level.getDataStorage().computeIfAbsent(new SavedData.Factory<>(ChannelManager::new, ChannelManager::load), DATA_NAME);
     }
 
     public void registerTransmitter(UUID owner, int channel, BlockPos pos) {
